@@ -3,21 +3,25 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import UseCases from './components/UseCases';
-import Testimonials from './components/Testimonials';
+import ImpactSection from './components/ImpactSection';
 import Demo from './components/Demo';
 import Footer from './components/Footer';
+import SplineSection from './components/SplineSection';
 
-function App() {
+const App = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <>
       <Header />
-      <Hero />
-      <Features />
-      <UseCases />
-      <Testimonials />
-      <Demo />
+      <main className="pt-20">
+        <Hero />
+        <SplineSection />
+        <Features />
+        <UseCases />
+        <ImpactSection />
+        <Demo />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -89,24 +89,7 @@ const Features = () => {
           ))}
         </div>
 
-        {/* Integration section */}
-        <div className="mt-24 text-center">
-          <div className="font-mono text-sm tracking-wide text-gray-400 mb-8">
-            &gt; INTEGRATIONS_AVAILABLE
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 max-w-4xl mx-auto">
-            {['VOICEFLOW', 'AIRTABLE', 'GOOGLE_CAL', 'ZAPIER', 'SLACK', 'HUBSPOT'].map((tool, index) => (
-              <div
-                key={tool}
-                className={`p-4 border border-white/10 hover:border-white/30 transition-all duration-300 hover-lift animate-fade-in-up delay-${1000 + index * 100}`}
-              >
-                <div className="font-mono text-xs tracking-wide text-gray-400 hover:text-white transition-colors duration-300">
-                  {tool}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        
       </div>
     </section>
   );

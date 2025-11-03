@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle, Terminal, Mail, Phone } from 'lucide-react';
+import { sendForm } from '../lib/sendForm';
 
 const Demo = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ const Demo = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -19,10 +22,32 @@ const Demo = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    if (!formData.name || !formData.email || !formData.company) return;
+    setIsLoading(true);
+    setErrorMsg('');
+    try {
+      const payload = {
+        from_name: 'Pulzivo Website',
+        subject: 'New Demo Request',
+        email: 'reza@pulzivo.dev',
+        user_name: formData.name,
+        user_email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+        industry: formData.industry,
+        message: formData.message,
+        source: 'Pulzivo Demo Form'
+      };
+      await sendForm(payload);
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', company: '', phone: '', industry: '', message: '' });
+    } catch (err) {
+      setErrorMsg('Submission failed. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const isFormValid = formData.name && formData.email && formData.company;
@@ -79,6 +104,10 @@ const Demo = () => {
             <div className="border border-white/20 p-8 bg-white/5 backdrop-blur-sm">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <input type="hidden" name="access_key" value={(import.meta as any).env?.VITE_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY'} />
+                  <input type="hidden" name="from_name" value="Pulzivo Website" />
+                  <input type="hidden" name="subject" value="New Demo Request" />
+                  <input type="hidden" name="email" value="reza@pulzivo.dev" />
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-mono font-bold text-white mb-2">
                       REQUEST_ACCESS()
@@ -180,18 +209,21 @@ const Demo = () => {
                     />
                   </div>
 
+                  {errorMsg && (
+                    <div className="font-mono text-xs text-red-400">{errorMsg}</div>
+                  )}
                   <button
                     type="submit"
-                    disabled={!isFormValid}
+                    disabled={!isFormValid || isLoading}
                     className={`w-full py-4 font-mono text-sm tracking-wide transition-all duration-300 ${
-                      isFormValid
+                      isFormValid && !isLoading
                         ? 'bg-white text-black hover:bg-gray-100 hover-lift border-glow-hover'
                         : 'bg-gray-800 text-gray-500 cursor-not-allowed border border-gray-700'
                     }`}
                   >
                     <span className="flex items-center justify-center">
-                      EXECUTE_REQUEST()
-                      <ArrowRight className="ml-3 w-5 h-5" />
+                      {isLoading ? 'PROCESSING...' : 'EXECUTE_REQUEST()'}
+                      {!isLoading && <ArrowRight className="ml-3 w-5 h-5" />}
                     </span>
                   </button>
                 </form>

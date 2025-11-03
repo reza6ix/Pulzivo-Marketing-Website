@@ -37,12 +37,6 @@ const Hero = () => {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto">
-          {/* Status indicator */}
-          <div className="inline-flex items-center px-4 py-2 border border-white/20 font-mono text-sm tracking-wide mb-12 animate-fade-in-up">
-            <div className="w-2 h-2 bg-white rounded-full mr-3 animate-pulse"></div>
-            SYSTEM_STATUS: OPERATIONAL
-          </div>
-
           {/* Main headline with typewriter effect */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-mono font-bold mb-8 leading-tight animate-fade-in-up delay-200">
             <div className="mb-4">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Terminal } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Terminal } from 'lucide-react';
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -27,15 +27,22 @@ const Footer = () => {
               to capture leads, provide support, and schedule appointments.
             </p>
             <div className="flex space-x-4">
-              {[Github, Linkedin, Twitter].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="w-10 h-10 border border-white/20 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300 hover-lift"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/pulzivo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 border border-white/20 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300 hover-lift"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="mailto:reza@pulzivo.dev"
+                className="w-10 h-10 border border-white/20 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300 hover-lift"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
@@ -45,7 +52,7 @@ const Footer = () => {
               NAVIGATION
             </h4>
             <ul className="space-y-4">
-              {['Features', 'Use Cases', 'Testimonials', 'Documentation', 'Support'].map((link) => (
+              {['Features', 'Use Cases', 'Impact', 'Documentation', 'Support'].map((link) => (
                 <li key={link}>
                   <button
                     onClick={() => scrollToSection(link.toLowerCase().replace(' ', '-'))}
@@ -66,17 +73,16 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center text-gray-400">
                 <Mail className="w-4 h-4 mr-3 text-white" />
-                <span className="font-mono text-sm">hello@pulzivo.com</span>
+                <a href="mailto:reza@pulzivo.dev" className="font-mono text-sm">reza@pulzivo.dev</a>
               </div>
               <div className="flex items-center text-gray-400">
                 <Phone className="w-4 h-4 mr-3 text-white" />
-                <span className="font-mono text-sm">+1.555.123.4567</span>
+                <span className="font-mono text-sm">+1 647 526 7076</span>
               </div>
               <div className="flex items-start text-gray-400">
                 <MapPin className="w-4 h-4 mr-3 text-white mt-0.5" />
                 <span className="font-mono text-sm">
-                  San Francisco, CA<br />
-                  United States
+                  Toronto, Ontario
                 </span>
               </div>
             </div>
