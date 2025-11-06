@@ -129,8 +129,8 @@ const UseCases = () => {
         {/* Stats grid */}
         <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { value: '500+', label: 'ACTIVE_DEPLOYMENTS' },
-            { value: '1M+', label: 'CONVERSATIONS_PROCESSED' },
+            { value: '15+', label: 'ACTIVE_DEPLOYMENTS' },
+            { value: '10K+', label: 'CONVERSATIONS_PROCESSED' },
             { value: '99.9%', label: 'SYSTEM_UPTIME' },
             { value: '24/7', label: 'OPERATIONAL_STATUS' }
           ].map((stat, index) => (

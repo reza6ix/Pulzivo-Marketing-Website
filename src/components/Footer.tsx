@@ -52,7 +52,7 @@ const Footer = () => {
               NAVIGATION
             </h4>
             <ul className="space-y-4">
-              {['Features', 'Use Cases', 'Impact', 'Documentation', 'Support'].map((link) => (
+              {['Features', 'Use Cases', 'Impact', 'Demo'].map((link) => (
                 <li key={link}>
                   <button
                     onClick={() => scrollToSection(link.toLowerCase().replace(' ', '-'))}
