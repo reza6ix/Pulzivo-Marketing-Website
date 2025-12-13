@@ -1,151 +1,105 @@
 import React from 'react';
-import { Dumbbell, Stethoscope, Scissors, ArrowRight } from 'lucide-react';
+import { 
+  Gamepad2, 
+  Dumbbell, 
+  Wrench, 
+  Stethoscope, 
+  Scissors, 
+  Building2,
+  ArrowUpRight
+} from 'lucide-react';
 
 const UseCases = () => {
-  const useCases = [
+  const industries = [
     {
-      icon: Dumbbell,
-      industry: 'FITNESS_CENTERS',
-      title: 'Member Acquisition System',
-      metrics: ['94% lead response rate', '3x faster onboarding', '60% cost reduction'],
-      features: [
-        'Automated membership questionnaires',
-        'Tour scheduling with availability sync',
-        'Class reminders and updates',
-        '24/7 inquiry handling'
-      ],
-      code: 'fitness.automate()'
+      icon: <Gamepad2 className="w-6 h-6" />,
+      title: "Bowling & Entertainment",
+      tasks: ["Book lanes & party rooms", "Answer pricing questions", "Handle group reservations"],
+      color: "violet"
     },
     {
-      icon: Stethoscope,
-      industry: 'HEALTHCARE_CLINICS',
-      title: 'Patient Care Automation',
-      metrics: ['99% appointment accuracy', '50% admin reduction', '24/7 availability'],
-      features: [
-        'Doctor availability scheduling',
-        'Pre-screening questionnaires',
-        'Appointment reminders',
-        'Insurance verification'
-      ],
-      code: 'healthcare.optimize()'
+      icon: <Dumbbell className="w-6 h-6" />,
+      title: "Sports Facilities",
+      tasks: ["Reserve courts & fields", "Manage memberships", "League sign-ups"],
+      color: "cyan"
     },
     {
-      icon: Scissors,
-      industry: 'BEAUTY_SALONS',
-      title: 'Client Experience Platform',
-      metrics: ['150% booking increase', '85% client satisfaction', '40% revenue growth'],
-      features: [
-        'Service-based scheduling',
-        'Personalized recommendations',
-        'Aftercare instructions',
-        'Automated feedback collection'
-      ],
-      code: 'beauty.enhance()'
+      icon: <Wrench className="w-6 h-6" />,
+      title: "Home Services",
+      tasks: ["Schedule estimates", "Qualify leads", "Emergency dispatch"],
+      color: "orange"
+    },
+    {
+      icon: <Stethoscope className="w-6 h-6" />,
+      title: "Medical & Dental",
+      tasks: ["Book appointments", "Answer FAQs", "Pre-visit instructions"],
+      color: "emerald"
+    },
+    {
+      icon: <Scissors className="w-6 h-6" />,
+      title: "Salons & Spas",
+      tasks: ["Schedule treatments", "Handle cancellations", "Manage waitlists"],
+      color: "pink"
+    },
+    {
+      icon: <Building2 className="w-6 h-6" />,
+      title: "Property Management",
+      tasks: ["Maintenance requests", "Leasing inquiries", "Tenant support"],
+      color: "blue"
     }
   ];
 
+  const colorClasses: Record<string, { bg: string; border: string; text: string }> = {
+    violet: { bg: 'bg-violet-500/10', border: 'border-violet-500/20', text: 'text-violet-400' },
+    cyan: { bg: 'bg-cyan-500/10', border: 'border-cyan-500/20', text: 'text-cyan-400' },
+    orange: { bg: 'bg-orange-500/10', border: 'border-orange-500/20', text: 'text-orange-400' },
+    emerald: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/20', text: 'text-emerald-400' },
+    pink: { bg: 'bg-pink-500/10', border: 'border-pink-500/20', text: 'text-pink-400' },
+    blue: { bg: 'bg-blue-500/10', border: 'border-blue-500/20', text: 'text-blue-400' }
+  };
+
   return (
-    <section id="use-cases" className="py-24 bg-black grid-pattern">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <div className="font-mono text-sm tracking-wide text-gray-400 mb-4 animate-fade-in-up">
-            &gt; DEPLOYMENT_SCENARIOS
+    <section id="use-cases" className="py-32 relative">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+              Built for high-volume
+              <br />
+              <span className="text-gradient">local businesses</span>
+            </h2>
+            <p className="text-lg text-white/40 max-w-lg">
+              Trained on your industry knowledge to handle calls like your best team member.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-6xl font-mono font-bold mb-8 animate-fade-in-up delay-200">
-            <span className="text-white">INDUSTRY</span>
-            <br />
-            <span className="text-white">SOLUTIONS</span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-light animate-fade-in-up delay-300">
-            Proven automation strategies for high-growth business sectors
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {useCases.map((useCase, index) => (
-            <div
-              key={useCase.industry}
-              className={`group p-8 border border-white/10 hover:border-white/30 transition-all duration-500 hover-lift bg-white/5 backdrop-blur-sm animate-fade-in-up delay-${400 + index * 200}`}
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between mb-6">
-                <useCase.icon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
-                <code className="font-mono text-xs text-gray-500 bg-white/5 px-2 py-1">
-                  {useCase.code}
-                </code>
-              </div>
-
-              {/* Industry label */}
-              <div className="font-mono text-sm tracking-wide text-white mb-2">
-                {useCase.industry}
-              </div>
-
-              {/* Title */}
-              <h3 className="text-2xl font-mono font-bold mb-6 text-white">
-                {useCase.title}
-              </h3>
-
-              {/* Metrics */}
-              <div className="mb-8">
-                <div className="font-mono text-xs tracking-wide text-gray-400 mb-3">
-                  PERFORMANCE_METRICS:
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {industries.map((industry, index) => {
+            const colors = colorClasses[industry.color];
+            return (
+              <div 
+                key={index} 
+                className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`w-12 h-12 rounded-xl ${colors.bg} ${colors.border} border flex items-center justify-center ${colors.text}`}>
+                    {industry.icon}
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 text-white/20 group-hover:text-white/60 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                 </div>
-                <div className="space-y-2">
-                  {useCase.metrics.map((metric, metricIndex) => (
-                    <div key={metricIndex} className="flex items-center text-sm">
-                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                      <span className="text-gray-300 font-light">{metric}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Features */}
-              <div className="mb-8">
-                <div className="font-mono text-xs tracking-wide text-gray-400 mb-3">
-                  FEATURE_SET:
-                </div>
+                <h3 className="text-lg font-semibold text-white mb-3">{industry.title}</h3>
                 <ul className="space-y-2">
-                  {useCase.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start text-sm">
-                      <span className="text-gray-500 mr-3 font-mono">→</span>
-                      <span className="text-gray-300 font-light">{feature}</span>
+                  {industry.tasks.map((task, i) => (
+                    <li key={i} className="flex items-center gap-2 text-white/40 text-sm">
+                      <div className={`w-1 h-1 rounded-full ${colors.text.replace('text-', 'bg-')}`}></div>
+                      {task}
                     </li>
                   ))}
                 </ul>
               </div>
-
-              {/* Action */}
-              <button className="group/btn w-full flex items-center justify-between p-3 border border-white/20 hover:border-white/50 transition-all duration-300 hover:bg-white/5">
-                <span className="font-mono text-sm tracking-wide text-white">
-                  DEPLOY_SOLUTION
-                </span>
-                <ArrowRight className="w-4 h-4 text-white group-hover/btn:translate-x-1 transition-transform duration-300" />
-              </button>
-            </div>
-          ))}
-        </div>
-
-        {/* Stats grid */}
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { value: '15+', label: 'ACTIVE_DEPLOYMENTS' },
-            { value: '10K+', label: 'CONVERSATIONS_PROCESSED' },
-            { value: '99.9%', label: 'SYSTEM_UPTIME' },
-            { value: '24/7', label: 'OPERATIONAL_STATUS' }
-          ].map((stat, index) => (
-            <div
-              key={stat.label}
-              className={`text-center p-6 border border-white/10 hover:border-white/30 transition-all duration-300 hover-lift animate-fade-in-up delay-${1000 + index * 100}`}
-            >
-              <div className="text-3xl md:text-4xl font-mono font-bold text-white mb-2">
-                {stat.value}
-              </div>
-              <div className="font-mono text-xs tracking-wide text-gray-400">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

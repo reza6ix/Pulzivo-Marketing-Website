@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+interface HeaderProps {
+  onBookDemo: () => void;
+}
+
+const Header = ({ onBookDemo }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,81 +17,99 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
     if (element) {
-      const header = document.querySelector('header');
-      const headerHeight = header ? (header as HTMLElement).offsetHeight : 0;
-      const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-      const targetY = Math.max(0, elementTop - headerHeight - 8);
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMenuOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-black'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-3">
-            <Terminal className="w-8 h-8 text-white" />
-            <span className="text-2xl font-mono font-bold tracking-wider text-white">
-              PULZIVO
-            </span>
-          </div>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'glass border-b border-white/5' : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <button onClick={scrollToTop} className="flex items-center">
+          <span className="text-xl font-bold tracking-tight text-white">Pulzivo</span>
+        </button>
 
-          <nav className="hidden md:flex items-center space-x-12">
-            {['Features', 'Use Cases', 'Impact', 'Demo'].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                className="font-mono text-sm tracking-wide text-white hover:text-gray-300 transition-colors duration-300 relative group"
-              >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
-              </button>
-            ))}
-          </nav>
-
-          <button
-            onClick={() => scrollToSection('demo')}
-            className="hidden md:inline-flex items-center px-6 py-3 bg-white text-black font-mono text-sm tracking-wide hover:bg-gray-100 transition-all duration-300 hover-lift border-glow-hover"
+        <nav className="hidden md:flex items-center gap-8">
+          <a 
+            href="#how-it-works" 
+            onClick={(e) => handleNavClick(e, 'how-it-works')}
+            className="text-sm text-white/60 hover:text-white transition-colors"
           >
-            BOOK_DEMO()
+            How it works
+          </a>
+          <a 
+            href="#use-cases" 
+            onClick={(e) => handleNavClick(e, 'use-cases')}
+            className="text-sm text-white/60 hover:text-white transition-colors"
+          >
+            Use cases
+          </a>
+          <a 
+            href="#pricing" 
+            onClick={(e) => handleNavClick(e, 'pricing')}
+            className="text-sm text-white/60 hover:text-white transition-colors"
+          >
+            Pricing
+          </a>
+          <button 
+            onClick={onBookDemo}
+            className="px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-[#0a0a0f] hover:scale-105 transition-transform"
+          >
+            Book a demo
           </button>
+        </nav>
 
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+        <button 
+          className="md:hidden text-white"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X /> : <Menu />}
+        </button>
+      </div>
+
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-20 left-0 w-full glass border-b border-white/10 p-6 flex flex-col gap-6">
+          <a 
+            href="#how-it-works" 
+            onClick={(e) => handleNavClick(e, 'how-it-works')}
+            className="text-lg text-white/80"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            How it works
+          </a>
+          <a 
+            href="#use-cases" 
+            onClick={(e) => handleNavClick(e, 'use-cases')}
+            className="text-lg text-white/80"
+          >
+            Use cases
+          </a>
+          <a 
+            href="#pricing" 
+            onClick={(e) => handleNavClick(e, 'pricing')}
+            className="text-lg text-white/80"
+          >
+            Pricing
+          </a>
+          <button 
+            onClick={() => { setIsMobileMenuOpen(false); onBookDemo(); }}
+            className="bg-white text-[#0a0a0f] w-full py-3 rounded-full font-semibold"
+          >
+            Book a demo
           </button>
         </div>
-
-          {isMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 right-0 bg-black/95 backdrop-blur-md border-b border-white/10">
-            <div className="px-6 py-8 space-y-6">
-              {['Features', 'Use Cases', 'Impact', 'Demo'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                  className="block font-mono text-sm tracking-wide text-gray-300 hover:text-white transition-colors duration-300"
-                >
-                  {item}
-                </button>
-              ))}
-              <button
-                onClick={() => scrollToSection('demo')}
-                className="w-full px-6 py-3 bg-white text-black font-mono text-sm tracking-wide hover:bg-gray-100 transition-all duration-300"
-              >
-                BOOK_DEMO()
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </header>
   );
 };

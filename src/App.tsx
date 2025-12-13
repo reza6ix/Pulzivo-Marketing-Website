@@ -1,27 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Features from './components/Features';
+import SocialProof from './components/SocialProof';
+import Differentiation from './components/Differentiation';
 import UseCases from './components/UseCases';
-import ImpactSection from './components/ImpactSection';
-import Demo from './components/Demo';
+import HowItWorks from './components/HowItWorks';
+import Features from './components/Features';
+import Pricing from './components/Pricing';
+import FAQ from './components/FAQ';
+import CtaSection from './components/CtaSection';
 import Footer from './components/Footer';
-import SplineSection from './components/SplineSection';
+import DemoModal from './components/DemoModal';
 
-const App = () => {
+function App() {
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
+
+  const openDemo = () => setIsDemoOpen(true);
+  const closeDemo = () => setIsDemoOpen(false);
+
   return (
-    <>
-      <Header />
-      <main className="pt-20">
-        <Hero />
-        <SplineSection />
-        <Features />
+    <div className="min-h-screen bg-[#0a0a0f] text-white overflow-x-hidden">
+      <Header onBookDemo={openDemo} />
+      <main>
+        <Hero onBookDemo={openDemo} />
+        <SocialProof />
+        <Differentiation />
         <UseCases />
-        <ImpactSection />
-        <Demo />
+        <HowItWorks />
+        <Features />
+        <Pricing onBookDemo={openDemo} />
+        <FAQ />
+        <CtaSection onBookDemo={openDemo} />
       </main>
-      <Footer />
-    </>
+      <Footer onBookDemo={openDemo} />
+      <DemoModal isOpen={isDemoOpen} onClose={closeDemo} />
+    </div>
   );
 }
 

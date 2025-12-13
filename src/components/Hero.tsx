@@ -1,102 +1,167 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowRight, Mail, MessageSquare, Calendar } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Phone, Calendar, Zap, CheckCircle2 } from 'lucide-react';
 
-const Hero = () => {
-  const [displayText, setDisplayText] = useState('');
-  const fullText = 'AI_AUTOMATION_PLATFORM';
+interface HeroProps {
+  onBookDemo: () => void;
+}
 
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setDisplayText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 100);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const scrollToDemo = () => {
-    const element = document.getElementById('demo');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
+const Hero = ({ onBookDemo }: HeroProps) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black grid-pattern">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-px h-96 bg-gradient-to-b from-transparent via-white/20 to-transparent animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/3 w-96 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse delay-1000"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-px h-64 bg-gradient-to-t from-transparent via-white/10 to-transparent animate-pulse delay-2000"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-violet-600/30 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-fuchsia-600/10 rounded-full blur-[150px]"></div>
+        
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}
+        ></div>
+
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0f]/50 to-[#0a0a0f]"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto">
-          {/* Main headline with typewriter effect */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-mono font-bold mb-8 leading-tight animate-fade-in-up delay-200">
-            <div className="mb-4">
-              <span className="text-white">BUILD.</span>
-            </div>
-            <div className="mb-4">
-              <span className="text-white">AUTOMATE.</span>
-            </div>
-            <div>
-              <span className="text-white">SCALE.</span>
-            </div>
+      <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center">
+        
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border border-white/10 mb-8">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span className="text-sm font-medium text-white/80">Your AI receptionist is live</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8">
+            <span className="block text-white">Never Miss</span>
+            <span className="block text-white">Another Call.</span>
+            <span className="block text-gradient mt-2">Ever.</span>
           </h1>
-
-          {/* Typewriter subtitle */}
-          <div className="font-mono text-xl md:text-2xl text-gray-400 mb-4 h-8 animate-fade-in-up delay-400">
-            &gt; {displayText}
-            <span className="animate-pulse">|</span>
-          </div>
-
-          {/* Description */}
-          <p className="text-lg md:text-xl text-gray-300 mb-16 max-w-4xl mx-auto leading-relaxed font-light animate-fade-in-up delay-500">
-            An AI automation agency for small businesses. Build intelligent chatbots and voice agents 
-            that capture leads, handle support, and schedule appointments automatically.
+          
+          <p className="text-lg md:text-xl text-white/60 mb-10 leading-relaxed max-w-xl">
+            We install a human-like AI receptionist that answers every call, books appointments, and captures leads—<span className="text-white/90 font-medium">24/7, on autopilot.</span>
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex items-center justify-center mb-20 animate-fade-in-up delay-700">
-            <button
-              onClick={scrollToDemo}
-              className="group inline-flex items-center px-8 py-4 bg-white text-black font-mono text-sm tracking-wide hover:bg-gray-100 transition-all duration-300 hover-lift border-glow-hover"
+          
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <button 
+              onClick={onBookDemo}
+              className="btn-primary group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-[#0a0a0f] bg-white rounded-full hover:scale-105 transition-transform duration-300"
             >
-              INITIALIZE_DEMO()
-              <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              Book a demo
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
+            <a 
+              href="#pricing"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white glass border border-white/10 rounded-full hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+            >
+              Get pricing
+            </a>
           </div>
 
-          {/* Feature grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              { icon: Mail, title: 'AI_EMAIL_RESPONDER', desc: 'Automated email replies' },
-              { icon: MessageSquare, title: 'AI_CONVERSATIONS', desc: 'Natural language processing' },
-              { icon: Calendar, title: 'AUTO_SCHEDULING', desc: 'Smart appointment booking' }
-            ].map((feature, index) => (
-              <div
-                key={feature.title}
-                className={`group p-6 border border-white/10 hover:border-white/30 transition-all duration-500 hover-lift bg-white/5 backdrop-blur-sm animate-fade-in-up delay-${800 + index * 100}`}
-              >
-                <feature.icon className="w-8 h-8 text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="font-mono text-sm tracking-wide mb-2 text-white">{feature.title}</h3>
-                <p className="text-gray-400 text-sm font-light">{feature.desc}</p>
-              </div>
-            ))}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/40">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+              <span>Done-for-you setup</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+              <span>No prompt engineering</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+              <span>Live in 72 hours</span>
+            </div>
           </div>
+        </div>
+
+        <div className="relative hidden lg:flex items-center justify-center">
+          <div className="relative z-20 w-full max-w-md animate-float">
+            <div className="glass-strong border border-white/10 rounded-3xl p-6 glow-box">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white">Incoming Call</div>
+                    <div className="text-xs text-white/40 font-mono">+1 (555) 123-4567</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                  <span className="text-xs font-medium text-emerald-400">Live</span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-center gap-1 h-16 mb-6 px-4">
+                {[...Array(24)].map((_, i) => (
+                  <div 
+                    key={i}
+                    className="w-1 bg-gradient-to-t from-violet-500 to-cyan-400 rounded-full"
+                    style={{ 
+                      height: `${Math.random() * 60 + 20}%`,
+                      animation: `pulse 1s ease-in-out ${i * 0.05}s infinite alternate`
+                    }}
+                  ></div>
+                ))}
+              </div>
+
+              <div className="space-y-3 mb-6">
+                <div className="flex gap-3">
+                  <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-[10px] text-white/60">C</div>
+                  <div className="flex-1 bg-white/5 border border-white/5 p-3 rounded-2xl rounded-tl-sm">
+                    <p className="text-sm text-white/70">"Hi, I'd like to book a lane for Saturday night, around 7pm for 6 people?"</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 flex-row-reverse">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-3 h-3 text-white" />
+                  </div>
+                  <div className="flex-1 bg-violet-500/10 border border-violet-500/20 p-3 rounded-2xl rounded-tr-sm">
+                    <p className="text-sm text-violet-200">"Perfect! I have lanes available at 7:00 PM and 7:30 PM. Which works better for you?"</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/5">
+                  <Calendar className="w-4 h-4 text-cyan-400" />
+                  <span className="text-xs text-white/60">Booking...</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <span className="text-xs text-emerald-400">Lead Captured</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute top-0 -left-8 z-30 animate-float-delayed">
+            <div className="glass border border-white/10 rounded-2xl p-4 glow-box">
+              <div className="text-2xl font-bold text-white mb-1">847</div>
+              <div className="text-xs text-white/40">Calls this month</div>
+            </div>
+          </div>
+
+          <div className="absolute bottom-8 -right-4 z-30 animate-float" style={{ animationDelay: '1s' }}>
+            <div className="glass border border-white/10 rounded-2xl p-4 glow-box">
+              <div className="text-2xl font-bold text-emerald-400 mb-1">98.2%</div>
+              <div className="text-xs text-white/40">Answer rate</div>
+            </div>
+          </div>
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-white/5 rounded-full -z-10"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-white/5 rounded-full -z-10"></div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border border-white/30 flex justify-center">
-          <div className="w-px h-3 bg-white/50 mt-2 animate-pulse"></div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
+        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1.5">
+          <div className="w-1 h-2 bg-white/40 rounded-full animate-bounce"></div>
         </div>
       </div>
     </section>
