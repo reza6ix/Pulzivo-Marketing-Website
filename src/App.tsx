@@ -24,10 +24,10 @@ function App() {
       <main>
         <Hero onBookDemo={openDemo} />
         <SocialProof />
-        <Differentiation />
-        <UseCases />
         <HowItWorks />
+        <UseCases />
         <Features />
+        <Differentiation />
         <Pricing onBookDemo={openDemo} />
         <FAQ />
         <CtaSection onBookDemo={openDemo} />

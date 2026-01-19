@@ -54,7 +54,7 @@ const Header = ({ onBookDemo }: HeaderProps) => {
             onClick={(e) => handleNavClick(e, 'use-cases')}
             className="text-sm text-white/60 hover:text-white transition-colors"
           >
-            Use cases
+            Templates
           </a>
           <a 
             href="#pricing" 
@@ -67,7 +67,7 @@ const Header = ({ onBookDemo }: HeaderProps) => {
             onClick={onBookDemo}
             className="px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-[#0a0a0f] hover:scale-105 transition-transform"
           >
-            Book a demo
+            Get Started
           </button>
         </nav>
 
@@ -93,7 +93,7 @@ const Header = ({ onBookDemo }: HeaderProps) => {
             onClick={(e) => handleNavClick(e, 'use-cases')}
             className="text-lg text-white/80"
           >
-            Use cases
+            Templates
           </a>
           <a 
             href="#pricing" 
@@ -106,7 +106,7 @@ const Header = ({ onBookDemo }: HeaderProps) => {
             onClick={() => { setIsMobileMenuOpen(false); onBookDemo(); }}
             className="bg-white text-[#0a0a0f] w-full py-3 rounded-full font-semibold"
           >
-            Book a demo
+            Get Started
           </button>
         </div>
       )}

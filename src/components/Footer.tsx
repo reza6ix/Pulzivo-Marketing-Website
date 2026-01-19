@@ -27,7 +27,7 @@ const Footer = ({ onBookDemo }: FooterProps) => {
               <span className="text-xl font-bold text-white">Pulzivo</span>
             </button>
             <p className="text-white/40 max-w-sm leading-relaxed">
-              The AI receptionist that answers calls, books appointments, and captures leads 24/7. Done-for-you voice automation.
+              The AI receptionist that answers calls, books appointments, and captures leads 24/7.
             </p>
           </div>
           
@@ -49,7 +49,7 @@ const Footer = ({ onBookDemo }: FooterProps) => {
                   onClick={(e) => scrollToSection(e, 'use-cases')}
                   className="hover:text-white transition-colors"
                 >
-                  Use Cases
+                  Templates
                 </a>
               </li>
               <li>
@@ -80,7 +80,7 @@ const Footer = ({ onBookDemo }: FooterProps) => {
                   onClick={onBookDemo}
                   className="hover:text-white transition-colors text-left"
                 >
-                  Book a Demo
+                  Get Started
                 </button>
               </li>
             </ul>

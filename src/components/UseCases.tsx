@@ -14,37 +14,37 @@ const UseCases = () => {
     {
       icon: <Gamepad2 className="w-6 h-6" />,
       title: "Bowling & Entertainment",
-      tasks: ["Book lanes & party rooms", "Answer pricing questions", "Handle group reservations"],
+      tasks: ["Lane booking", "Pricing inquiries", "Group reservations"],
       color: "violet"
     },
     {
       icon: <Dumbbell className="w-6 h-6" />,
       title: "Sports Facilities",
-      tasks: ["Reserve courts & fields", "Manage memberships", "League sign-ups"],
+      tasks: ["Court reservations", "Membership support", "Event sign-ups"],
       color: "cyan"
     },
     {
       icon: <Wrench className="w-6 h-6" />,
       title: "Home Services",
-      tasks: ["Schedule estimates", "Qualify leads", "Emergency dispatch"],
+      tasks: ["Estimate scheduling", "Lead qualification", "Dispatch coordination"],
       color: "orange"
     },
     {
       icon: <Stethoscope className="w-6 h-6" />,
       title: "Medical & Dental",
-      tasks: ["Book appointments", "Answer FAQs", "Pre-visit instructions"],
+      tasks: ["Patient scheduling", "FAQ automation", "Pre-visit protocols"],
       color: "emerald"
     },
     {
       icon: <Scissors className="w-6 h-6" />,
       title: "Salons & Spas",
-      tasks: ["Schedule treatments", "Handle cancellations", "Manage waitlists"],
+      tasks: ["Treatment booking", "Cancellation handling", "Waitlist management"],
       color: "pink"
     },
     {
       icon: <Building2 className="w-6 h-6" />,
       title: "Property Management",
-      tasks: ["Maintenance requests", "Leasing inquiries", "Tenant support"],
+      tasks: ["Maintenance triage", "Leasing inquiries", "Tenant services"],
       color: "blue"
     }
   ];
@@ -64,12 +64,12 @@ const UseCases = () => {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-              Built for high-volume
+              Pre-Trained on
               <br />
-              <span className="text-gradient">local businesses</span>
+              <span className="text-gradient">Your Industry</span>
             </h2>
             <p className="text-lg text-white/40 max-w-lg">
-              Trained on your industry knowledge to handle calls like your best team member.
+              Select a vertical-specific template to get started immediately.
             </p>
           </div>
         </div>

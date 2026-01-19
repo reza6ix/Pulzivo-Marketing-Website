@@ -5,33 +5,33 @@ const Features = () => {
   const features = [
     {
       icon: <Calendar className="w-5 h-5" />,
-      title: "Smart Booking",
-      description: "Direct calendar integration books appointments in real-time."
+      title: "Real-time Scheduling",
+      description: "Direct calendar integration syncs availability instantly."
     },
     {
       icon: <MessageSquare className="w-5 h-5" />,
-      title: "Lead Capture",
-      description: "Qualifies callers and collects info, even if they don't book."
+      title: "Structured Data Capture",
+      description: "Extracts and organizes lead information automatically."
     },
     {
       icon: <Clock className="w-5 h-5" />,
-      title: "After-Hours Support",
-      description: "Capture revenue while you sleep. Weekends and holidays included."
+      title: "24/7 Availability",
+      description: "Zero downtime. Capture revenue nights and weekends."
     },
     {
       icon: <Share2 className="w-5 h-5" />,
-      title: "Human Handoff",
-      description: "Complex calls are instantly forwarded to your team."
+      title: "Intelligent Routing",
+      description: "Forward complex queries to human staff instantly."
     },
     {
       icon: <BarChart3 className="w-5 h-5" />,
-      title: "Call Summaries",
-      description: "Transcripts and actionable summaries of every conversation."
+      title: "Transcripts & Logs",
+      description: "Full visibility into every conversation and outcome."
     },
     {
       icon: <Shield className="w-5 h-5" />,
-      title: "Enterprise Security",
-      description: "SOC 2 compliant. Your data is encrypted and protected."
+      title: "SOC 2 Ready",
+      description: "Enterprise-grade encryption and data protection."
     }
   ];
 
@@ -41,12 +41,10 @@ const Features = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-              Everything you need.
-              <br />
-              <span className="text-white/40">Nothing you don't.</span>
+              Complete Command Center.
             </h2>
             <p className="text-lg text-white/40 mb-8 max-w-md">
-              Built for local businesses that want results, not a new software platform to manage.
+              Manage your agent, view transcripts, and track bookings from a single dashboard.
             </p>
             
             <div className="grid sm:grid-cols-2 gap-4">
@@ -74,30 +72,36 @@ const Features = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-violet-500/20 to-transparent rounded-full blur-2xl"></div>
                 
                 <div className="mb-6">
-                  <div className="text-xs font-mono text-violet-400 mb-2">CALL SUMMARY</div>
-                  <div className="text-sm text-white/60">Today, 3:42 PM • Duration: 2:34</div>
+                  <div className="text-xs font-mono text-violet-400 mb-2">SESSION LOG</div>
+                  <div className="text-sm text-white/60">ID: #8492-AC • Status: Completed</div>
                 </div>
 
                 <div className="space-y-4 mb-6">
                   <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                    <div className="text-xs text-white/40 mb-1">Caller Intent</div>
-                    <div className="text-white font-medium">Book appointment for haircut</div>
+                    <div className="text-xs text-white/40 mb-1">Intent Detected</div>
+                    <div className="text-white font-medium">Appointment Booking</div>
                   </div>
                   <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                    <div className="text-xs text-white/40 mb-1">Outcome</div>
+                    <div className="text-xs text-white/40 mb-1">Action Triggered</div>
                     <div className="text-emerald-400 font-medium flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                      Appointment booked for Sat 10:00 AM
+                      Calendar Event Created
                     </div>
                   </div>
                   <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                    <div className="text-xs text-white/40 mb-1">Contact Captured</div>
-                    <div className="text-white font-medium">john.doe@email.com</div>
+                    <div className="text-xs text-white/40 mb-1">Data Extracted</div>
+                    <div className="text-white font-medium font-mono text-xs">
+                      {`{
+  "email": "user@example.com",
+  "time": "10:00 AM",
+  "date": "2024-03-20"
+}`}
+                    </div>
                   </div>
                 </div>
 
                 <div className="w-full py-3 rounded-xl bg-white/5 border border-white/10 text-white/40 text-sm text-center">
-                  Full transcript available in dashboard
+                  View full transcript
                 </div>
               </div>
             </div>

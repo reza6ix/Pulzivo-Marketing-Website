@@ -32,17 +32,16 @@ const Hero = ({ onBookDemo }: HeroProps) => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
             </span>
-            <span className="text-sm font-medium text-white/80">Your AI receptionist is live</span>
+            <span className="text-sm font-medium text-white/80">Now accepting early access</span>
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8">
-            <span className="block text-white">Never Miss</span>
-            <span className="block text-white">Another Call.</span>
-            <span className="block text-gradient mt-2">Ever.</span>
+            <span className="block text-white">Deploy Human-Like</span>
+            <span className="block text-gradient mt-2">Voice Agents in Minutes.</span>
           </h1>
           
           <p className="text-lg md:text-xl text-white/60 mb-10 leading-relaxed max-w-xl">
-            We install a human-like AI receptionist that answers every call, books appointments, and captures leads—<span className="text-white/90 font-medium">24/7, on autopilot.</span>
+            Turn your website into a fully functional AI receptionist. Auto-configured, instantly deployable, and <span className="text-white/90 font-medium">always on.</span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -50,29 +49,29 @@ const Hero = ({ onBookDemo }: HeroProps) => {
               onClick={onBookDemo}
               className="btn-primary group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-[#0a0a0f] bg-white rounded-full hover:scale-105 transition-transform duration-300"
             >
-              Book a demo
+              Get Started
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
             <a 
               href="#pricing"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white glass border border-white/10 rounded-full hover:border-white/30 hover:bg-white/5 transition-all duration-300"
             >
-              Get pricing
+              View Templates
             </a>
           </div>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/40">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              <span>Done-for-you setup</span>
+              <span>Self-serve platform</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              <span>No prompt engineering</span>
+              <span>Vertical-specific templates</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              <span>Live in 72 hours</span>
+              <span>Sub-second latency</span>
             </div>
           </div>
         </div>
@@ -113,7 +112,7 @@ const Hero = ({ onBookDemo }: HeroProps) => {
                 <div className="flex gap-3">
                   <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-[10px] text-white/60">C</div>
                   <div className="flex-1 bg-white/5 border border-white/5 p-3 rounded-2xl rounded-tl-sm">
-                    <p className="text-sm text-white/70">"Hi, I'd like to book a lane for Saturday night, around 7pm for 6 people?"</p>
+                    <p className="text-sm text-white/70">"Can I book an appointment for tomorrow at 2pm?"</p>
                   </div>
                 </div>
                 <div className="flex gap-3 flex-row-reverse">
@@ -121,7 +120,7 @@ const Hero = ({ onBookDemo }: HeroProps) => {
                     <Zap className="w-3 h-3 text-white" />
                   </div>
                   <div className="flex-1 bg-violet-500/10 border border-violet-500/20 p-3 rounded-2xl rounded-tr-sm">
-                    <p className="text-sm text-violet-200">"Perfect! I have lanes available at 7:00 PM and 7:30 PM. Which works better for you?"</p>
+                    <p className="text-sm text-violet-200">"I can help with that. I have an opening at 2:00 PM or 2:30 PM. Which works best?"</p>
                   </div>
                 </div>
               </div>
@@ -129,11 +128,11 @@ const Hero = ({ onBookDemo }: HeroProps) => {
               <div className="grid grid-cols-2 gap-3">
                 <div className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/5">
                   <Calendar className="w-4 h-4 text-cyan-400" />
-                  <span className="text-xs text-white/60">Booking...</span>
+                  <span className="text-xs text-white/60">Checking slots...</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span className="text-xs text-emerald-400">Lead Captured</span>
+                  <span className="text-xs text-emerald-400">Agent Active</span>
                 </div>
               </div>
             </div>
@@ -141,15 +140,15 @@ const Hero = ({ onBookDemo }: HeroProps) => {
 
           <div className="absolute top-0 -left-8 z-30 animate-float-delayed">
             <div className="glass border border-white/10 rounded-2xl p-4 glow-box">
-              <div className="text-2xl font-bold text-white mb-1">847</div>
-              <div className="text-xs text-white/40">Calls this month</div>
+              <div className="text-2xl font-bold text-white mb-1">12ms</div>
+              <div className="text-xs text-white/40">Latency</div>
             </div>
           </div>
 
           <div className="absolute bottom-8 -right-4 z-30 animate-float" style={{ animationDelay: '1s' }}>
             <div className="glass border border-white/10 rounded-2xl p-4 glow-box">
-              <div className="text-2xl font-bold text-emerald-400 mb-1">98.2%</div>
-              <div className="text-xs text-white/40">Answer rate</div>
+              <div className="text-2xl font-bold text-emerald-400 mb-1">100%</div>
+              <div className="text-xs text-white/40">Uptime</div>
             </div>
           </div>
 

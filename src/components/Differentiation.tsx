@@ -1,25 +1,31 @@
 import React from 'react';
-import { Wrench, Clock, Users, Sparkles } from 'lucide-react';
+import { Cpu, Layers, LayoutDashboard, Zap } from 'lucide-react';
 
 const Differentiation = () => {
   const features = [
     {
-      icon: <Wrench className="w-6 h-6" />,
-      title: "We handle the tech",
-      description: "No drag-and-drop builders. No prompt engineering. We build your agent to match your business perfectly.",
+      icon: <Zap className="w-6 h-6" />,
+      title: "Proprietary Inference",
+      description: "Our low-latency architecture ensures instant, human-like response times.",
       gradient: "from-violet-500 to-fuchsia-500"
     },
     {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Never miss a lead",
-      description: "Whether it's 2 PM or 2 AM, every call is answered instantly and professionally. 24/7 coverage included.",
+      icon: <Layers className="w-6 h-6" />,
+      title: "Vertical Templates",
+      description: "Pre-trained models for specific industries deployable in one click.",
       gradient: "from-cyan-500 to-blue-500"
     },
     {
-      icon: <Users className="w-6 h-6" />,
-      title: "Humans in control",
-      description: "The AI handles the routine. Complex issues are instantly forwarded to your team when needed.",
+      icon: <LayoutDashboard className="w-6 h-6" />,
+      title: "Dashboard Control",
+      description: "Real-time logs, call recordings, and analytics at your fingertips.",
       gradient: "from-emerald-500 to-teal-500"
+    },
+    {
+      icon: <Cpu className="w-6 h-6" />,
+      title: "Elastic Infrastructure",
+      description: "Handles infinite concurrent calls with zero performance degradation.",
+      gradient: "from-orange-500 to-red-500"
     }
   ];
 
@@ -30,17 +36,17 @@ const Differentiation = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
-            <Sparkles className="w-4 h-4 text-violet-400" />
-            <span className="text-sm text-white/60">The Pulzivo Difference</span>
+            <Zap className="w-4 h-4 text-violet-400" />
+            <span className="text-sm text-white/60">Platform Signals</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-            We don't give you software.
+            Built for scale.
             <br />
-            <span className="text-gradient">We give you results.</span>
+            <span className="text-gradient">Engineered for speed.</span>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <div 
               key={index} 
@@ -50,7 +56,7 @@ const Differentiation = () => {
                 {feature.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
-              <p className="text-white/50 leading-relaxed">
+              <p className="text-white/50 leading-relaxed text-sm">
                 {feature.description}
               </p>
               <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${feature.gradient} rounded-b-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>

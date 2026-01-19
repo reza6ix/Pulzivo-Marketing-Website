@@ -1,27 +1,27 @@
 import React from 'react';
-import { Bot, PhoneCall, TrendingUp } from 'lucide-react';
+import { Globe, Settings, Rocket } from 'lucide-react';
 
 const HowItWorks = () => {
   const steps = [
     {
-      icon: <Bot className="w-8 h-8 text-white" />,
+      icon: <Globe className="w-8 h-8 text-white" />,
       number: "01",
-      title: "We Learn",
-      description: "We ingest your website, pricing, and calendar to build a custom knowledge base that speaks your language.",
+      title: "Connect your website",
+      description: "Enter your URL. We automatically ingest your content to build a custom knowledge base instantly.",
       gradient: "from-violet-500 to-fuchsia-500"
     },
     {
-      icon: <PhoneCall className="w-8 h-8 text-white" />,
+      icon: <Settings className="w-8 h-8 text-white" />,
+      title: "Choose a template",
       number: "02",
-      title: "We Install",
-      description: "We set up your phone lines and integrate with your booking software. No complex IT required.",
+      description: "Select from industry-specific templates and configure your agent's voice and behavior in the dashboard.",
       gradient: "from-fuchsia-500 to-pink-500"
     },
     {
-      icon: <TrendingUp className="w-8 h-8 text-white" />,
+      icon: <Rocket className="w-8 h-8 text-white" />,
       number: "03",
-      title: "You Grow",
-      description: "We go live. The AI starts answering calls, filling your calendar, and capturing leads 24/7.",
+      title: "Launch your AI phone line",
+      description: "Get a dedicated phone number or set up call forwarding. Your agent is live and ready to answer.",
       gradient: "from-pink-500 to-orange-500"
     }
   ];
@@ -33,10 +33,10 @@ const HowItWorks = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-            Live in <span className="text-gradient">72 hours</span>
+            Deploy in <span className="text-gradient">minutes</span>
           </h2>
           <p className="text-lg text-white/40 max-w-lg mx-auto">
-            We handle the heavy lifting. You get the results.
+            From URL to active phone line in three simple steps.
           </p>
         </div>
 

@@ -7,43 +7,43 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Does it sound robotic?",
-      answer: "No. We use ultra-low latency voice models that sound incredibly human. Most callers don't even realize they're speaking to an AI."
+      answer: "No. We use proprietary low-latency voice models that sound incredibly human. Most callers don't even realize they're speaking to an AI."
     },
     {
       question: "What if the AI doesn't know the answer?",
-      answer: "If the AI encounters a question it can't answer, it politely takes a message or forwards the call to a designated staff member's phone."
+      answer: "If the AI encounters a question it can't answer, it politely takes a message or intelligently routes the call to a designated staff member."
     },
     {
       question: "Can I use my existing phone number?",
-      answer: "Yes. You can forward your existing number to our system, or we can provide you with a new local number."
+      answer: "Yes. You can verify your existing number for outbound calls, or set up forwarding to your Pulzivo number for inbound traffic."
     },
     {
       question: "How long does setup take?",
-      answer: "We typically have your AI receptionist live within 3-5 business days after receiving your onboarding information."
+      answer: "You can be live in minutes. Simply connect your website, choose a template, and deploy your agent."
     },
     {
       question: "Does it integrate with my calendar?",
-      answer: "Yes. We integrate with Calendly, Acuity, Google Calendar, and most major booking platforms to schedule appointments directly."
+      answer: "Yes. We integrate natively with Calendly, Acuity, Google Calendar, and most major booking platforms."
     },
     {
       question: "Can it handle multiple calls at once?",
-      answer: "Yes. Unlike a human receptionist, our AI handles unlimited simultaneous calls. Your customers never hear a busy signal."
+      answer: "Yes. Our elastic infrastructure handles infinite simultaneous calls. Your customers never hear a busy signal."
     },
     {
       question: "Is my data secure?",
-      answer: "Absolutely. We use enterprise-grade encryption and are SOC 2 compliant. Your data is always protected."
+      answer: "Absolutely. We are SOC 2 ready and use enterprise-grade encryption to protect your data and call logs."
     },
     {
       question: "How much does it cost?",
-      answer: "Plans start at $499/month. See our pricing section for details. No hidden fees, no long-term contracts."
+      answer: "Plans start at $199/month. See our pricing section for details. No hidden fees or long-term contracts."
     },
     {
       question: "Can I customize the voice?",
-      answer: "Yes. We can adjust the tone, speed, and accent of the AI to match your brand's personality."
+      answer: "Yes. You can select from our library of pre-trained voices or clone your own voice in the dashboard."
     },
     {
       question: "Do I need to be technical?",
-      answer: "Not at all. We handle all setup, configuration, and ongoing maintenance. You just answer qualified leads."
+      answer: "Not at all. Our self-serve dashboard is designed for non-technical users. No coding required."
     }
   ];
 
